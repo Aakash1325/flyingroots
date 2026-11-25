@@ -1,0 +1,37 @@
+FLYINGROOTS - IMAGE CREDITS AND GENERATION BRIEFS
+All ten editorial photographs were created with built-in GPT Image Generation for this project.
+The supplied FlyingRoots logos and supplied hero video are separate user-provided assets.
+
+Shared direction: one landscape photograph per asset; premium photorealistic editorial food/trade photography, natural directional light, tactile real materials, deep greens, restrained warm highlights, centered composition suitable for responsive crops. No text, logos, watermarks, collages or CGI appearance.
+
+dist/images/cat-fruits.webp
+A ripe cut Indian mango with a few whole mangoes, a pineapple section, pomegranate and tomatoes on a dark forest-green stone table. Beautiful natural pulp fibers and real fruit skin, restrained arrangement.
+
+dist/images/cat-dehydrated.webp
+Dehydrated white onion flakes, a few dried red onion rings, garlic flakes and ginger slices, separated into three shallow matte olive ceramic bowls on a dark green stone surface. Real irregular dry textures.
+
+dist/images/cat-powders.webp
+Fine tomato powder, coconut milk powder, onion powder, garlic powder and ginger powder arranged in five shallow small ceramic dishes on olive-green stone. Airy powder texture and subtle accidental powder scatter.
+
+dist/images/cat-iqf.webp
+Individual quick frozen green peas, green okra pieces and diced carrots with green beans in an open matte metal food tray on cool deep olive stone. Visible delicate frost, convincing frozen food, fresh green color.
+
+dist/images/cat-spices.webp
+Whole turmeric roots and turmeric powder, red dried chillies, cumin seeds, coriander seeds and black peppercorns on deep forest-green stone with a single small olive ceramic bowl. Tactile natural editorial food photograph.
+
+dist/images/cat-leaves.webp
+Fresh moringa sprigs, fresh curry leaves, mint leaves and dried Indian bay leaves on a dark olive stone surface, botanical details and subtle drying tray at the edge. Real leaf veins, naturally imperfect stems.
+
+dist/images/cat-nuts.webp
+Premium natural cashew kernels, peanuts in and out of shells, almonds and desiccated coconut in restrained shallow ceramic bowls on deep olive-green stone. Fine real nut texture with natural imperfections.
+
+dist/images/about-ingredients.webp
+Editorial overhead photograph of an abundant but considered Indian ingredient table: fresh curry leaves, ripe mango, whole turmeric, red chillies, cashews, peppercorns and spice powders on deep forest-green stone, single woven natural jute cloth at one edge. Elegant real food arrangement.
+
+dist/images/trade.webp
+Photorealistic aerial editorial photograph of a cargo ship moving through dark jade green ocean near a lush tropical Indian coastline. Coherent real ship geometry and tidy containers without readable logos. Quiet late afternoon natural light, sophisticated travel magazine photo.
+
+dist/images/hero-poster.webp
+Photorealistic landscape editorial photograph of verdant agricultural fields in South India, gentle green hills and distant coconut palms in morning light. Dark natural green foreground, atmospheric real sky, a premium cinematic agricultural landscape. Wide composition, no people or text.
+
+WebP derivatives are used on the website. The social-sharing JPG derives from the generated hero landscape. Source generated images are also shown in this conversation.

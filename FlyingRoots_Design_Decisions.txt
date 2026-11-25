@@ -1,0 +1,108 @@
+FLYINGROOTS - DESIGN DECISIONS
+Prepared for Aakash P | November 25, 2026
+
+PROJECT INTENT
+Transform the supplied agro-products website into a polished FlyingRoots portfolio concept. Keep its recognizable editorial typography, green visual language, full-screen film and product-browsing depth, while removing old company details, repetition and unnecessary motion.
+
+1. COMPANY IDENTITY
+Replaced JAGRO, Jeevan Agro and Jeevan Infotech references with FlyingRoots. Removed the subsidiary narrative, named parent organization, software heritage and the 20+ years claim instead of transferring another company's credentials to the fictional brand.
+
+Used the supplied PDF logos without redrawing the artwork. Converted them to SVG for sharp display and derived small symbols directly from the provided mark. The light artwork sits on the hero and dark footer; the dark artwork appears on the light navigation background. Preserved the logo's proportions and provided meaningful accessible names.
+
+2. FICTIONAL COMPANY DETAILS
+Created FlyingRoots Foods, with Arjun Nair as its sample Trade Director. The displayed address is 18 Canopy Trade Avenue, Greenhaven Business Park, Kochi, Kerala 682001, India. Sample phone: +1 202 555 0148. Sample email: hello@flyingroots.example. Sample website: www.flyingroots.example.
+
+All of these details are fictional. Contact actions stay inside the concept and display an explanation rather than opening a call, email, map or WhatsApp destination. A concise disclosure sits beside the contact information and in the footer. No XXX filler was used. The sample US-format telephone number is intentionally not presented as a verified Indian business contact.
+
+3. INFORMATION ARCHITECTURE
+Final sequence: hero, introduction, product collection, brand approach, services, five-stage process, global trade, enquiry, footer.
+
+Removed the two repetitive scrolling category strips. The seven categories are already available in the gallery tabs and footer, so another moving navigation layer added length and distraction.
+
+Replaced the long introductory corporate explanation and repeated overview cards with a shorter story, one strong ingredient image and three clear sourcing principles.
+
+Merged the old tech-heritage advantage section into the brand approach. Its useful ideas survive as written specifications, sample-led decisions and coordinated execution, without unsupported corporate history.
+
+Removed separate vision/mission blocks and the duplicated buyer/supplier onboarding lists. Their purpose is carried by the brand statement and the two enquiry tabs. The result has a clearer reading rhythm and fewer repeated promises.
+
+Kept the complete seven-category catalogue, product lines, processing formats and detailed enquiry paths.
+
+4. TYPOGRAPHY
+Kept the original export's actual visible font family: Urbanist italic for display headings and Google Sans for body copy and controls. Gilroy was named in the old stylesheet but was not supplied; the new build declares the fonts that are actually present and bundles them locally.
+
+Headings scale across breakpoints. Body copy starts at 16px, with compact supporting labels where appropriate. Large italic headings remain the primary editorial signature. Browser font settings and zoom remain available.
+
+5. COLOR, SPACING AND SURFACES
+Aligned the site more closely with the supplied logo's olive and green tones. Core colors: forest #283217, deep green #1D2819, soft green #B7D68E, paper #FBFCF7, cream #EFF5E4 and supporting sage #566C3A.
+
+Used dark sections to punctuate the story, rather than giving every component a different treatment. Rounded imagery and restrained soft button depth preserve the source site's character. Removed decorative counters except where numbers communicate actual process order or gallery position.
+
+Reduced text density and established consistent section margins, container widths, card radii and action spacing. Gallery cards are clipped within their own visual area so transitions cannot overlap adjacent product information.
+
+6. PHOTOGRAPHY
+Replaced every editorial and product photograph with new ChatGPT-generated photorealistic imagery. Ten original photographs cover seven ingredient categories, the introductory ingredient table, global shipping and the hero fallback landscape. Reuse across relevant sections is intentional and creates a coherent collection.
+
+Art direction: realistic Indian ingredients, tactile stone and ceramic surfaces, natural directional light, deep greens, convincing food texture and restrained styling. No lettering, watermarks or stock photography is used in the new photo collection.
+
+The supplied logos remain supplied brand artwork. They were not regenerated. The moving hero film is the user's supplied video, as requested.
+
+Website photographs are high-quality WebP derivatives of the generated originals. The social-sharing image is derived from the generated landscape. Photographic assets were inspected together for consistency before integration.
+
+7. HERO VIDEO
+Used the exact supplied 1280 x 720 H.264 MP4. The delivered file is 45,262,674 bytes and was copied without compression, transcoding, frame-rate changes or resolution reduction.
+
+SHA-256 of both upload and delivered film:
+ca69871522e8b39298771e5486cf765452f011e15f25cf90612e5e243c9e9ad6
+
+CSS object-fit changes only the displayed crop, not the stored file. The same original film serves desktop and mobile. This preserves quality but also preserves the approximately 45 MB transfer size.
+
+The video is muted, looping and inline. An accessible play/pause control is always present. Playback pauses when the hero leaves view or the document is hidden. Reduced-motion and data-saving preferences prevent automatic playback. The hero uses the supplied video only; its still-image banner, poster attribute and gradient shading have been removed. Text and navigation remain over the film.
+
+8. ICON SYSTEM
+Used one coherent family of simple line icons throughout navigation, services, process, contact details, gallery controls and form feedback. Every interface icon uses a 24-unit viewBox, a 1.4 stroke, round line caps and round joins. Supplied logo paths are brand artwork and are not forced into the interface icon system.
+
+Controls have descriptive accessible labels. Decorative icons are hidden from assistive technology. Category browsing uses chevrons; actions use text rather than decorative arrows.
+
+9. PRODUCT BROWSING
+Kept all seven categories, with searchable product names, formats, summaries and keywords. Search updates the visible categories and handles empty results without leaving visitors at a dead end. Clear-search controls restore the entire collection.
+
+Desktop combines the image deck with adjacent product information. Mobile stacks the gallery and details. Category cards transition using transform and opacity rather than expensive layout animation. Previous/next buttons, category tabs, keyboard arrows and drag/swipe all use the same selected state.
+
+The detail drawer uses the browser's native modal dialog behavior for background isolation, keyboard containment and Escape dismissal. Focus returns to its trigger. Product choices and specification requests carry into the buyer enquiry without duplicate chips.
+
+10. MOTION DIRECTION
+Replaced the compiled motion stack with a small native interaction layer. Section reveals use a single IntersectionObserver and short opacity/translate transitions. They reveal once and then remain visible. There is no heavy blur morph, continuous page-wide parallax, custom cursor or auto-scrolling marquee.
+
+Brand values change on user selection using a brief text transition. This avoids constantly moving long words while visitors read.
+
+The process slideshow advances only while visible, stops when the page is hidden, pauses on hover or keyboard focus and offers a play/pause control. Manual stage selection pauses automatic progression. Reduced motion disables automatic cycling and entrance motion.
+
+The header uses a scheduled scroll update and an observed active-section state. Modal transitions and gallery transitions are short and consistent. Layout is not tied to a custom smooth-scroll engine; native scrolling, normal anchor links and browser behavior remain intact.
+
+11. ENQUIRY EXPERIENCE
+Kept separate buyer and supplier paths. Required fields remain visible; less common specifications and facility details are placed in optional disclosure panels to reduce first-view complexity.
+
+The forms validate required fields, email format, phone length, product selection and supplier categories. Errors appear beside fields and in a focusable summary. Inputs retain their values when the visitor edits the preview. Supplier additional-information comments are included in the preview.
+
+Submission creates a readable on-page enquiry preview, with copy and edit controls. The site clearly states that nothing was sent or saved. This replaces the original export's unconnected mail-service fallback and avoids sending enquiries to fictional addresses. A real enquiry backend is deliberately absent from this portfolio concept.
+
+12. RESPONSIVENESS AND ACCESSIBILITY
+Reviewed at CSS viewport widths of 320, 390, 768, 1024 and 1363 pixels. Narrow layouts use a native modal menu, horizontally scrollable category tabs, a bottom product sheet and single-column forms. Text inputs remain at 16px to support comfortable mobile entry.
+
+Added a skip link, visible keyboard focus, tab semantics with arrow/Home/End navigation, labeled controls, descriptive image alternatives and error associations. Modal background scrolling is locked while dialogs are open. The product drawer supports Escape and focus restoration.
+
+13. IMPLEMENTATION AND PORTFOLIO PRESENTATION
+The supplied ZIP contained compiled runtime output. Rebuilt the delivered concept as plain HTML, CSS and JavaScript with local fonts and media so it can be edited and hosted as a static GitHub Pages site. No paid API, framework runtime, analytics or external font request is needed.
+
+Page titles and sharing copy now identify FlyingRoots. Removed original company canonical URLs and structured company records. The portfolio concept uses noindex to avoid presenting fictional company details as a real operating business. Absolute sharing URLs should be configured only after its final hosting address is known.
+
+The repository destination remains a user decision. Hosting and adding the project to Aakash's portfolio require that destination and a verified live link; neither is represented as complete before it happens.
+
+14. THREE REVIEW PASSES
+Pass 1 - source and assets: checked local asset and font references, unique element IDs, anchor targets, absence of original company details, icon stroke consistency and exact video-file integrity.
+
+Pass 2 - desktop behavior: exercised all seven categories, search and empty states, clear search, detail drawer, specification transfer, buyer and supplier validation, preview/edit flows, supplier comments, four brand values, three accordions, five process stages, slideshow controls and video controls.
+
+Pass 3 - responsive regression: checked the listed CSS widths, mobile menu, category keyboard controls, Escape dismissal, drawer focus restoration, search reset and a complete mobile scroll walkthrough. All 23 section-reveal blocks became visible. No broken image or horizontal page overflow was found in the tested layouts.
+
+Limits: these were Chromium-based browser checks at the listed CSS widths, not tests on physical phones or every browser engine. Reduced-motion handling was reviewed in CSS and JavaScript; the browser's OS preference was not changed. No claim is made that fictional contact links or form previews deliver real enquiries.

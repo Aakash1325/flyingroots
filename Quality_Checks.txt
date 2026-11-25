@@ -1,0 +1,65 @@
+FLYINGROOTS - THREE QUALITY REVIEW PASSES
+November 25, 2026
+
+{
+  "pass": "Source and assets",
+  "duplicate_ids": 0,
+  "broken_local_assets": [],
+  "old_brand_matches": 0,
+  "icons": 36,
+  "icon_stroke": 1.4,
+  "video_hash_match": true,
+  "video_sha256": "ca69871522e8b39298771e5486cf765452f011e15f25cf90612e5e243c9e9ad6",
+  "categories": 7,
+  "all_checks_passed": true
+}
+
+{
+  "pass": "Desktop interactions and visual review",
+  "categories_tested": 7,
+  "search_matching_and_empty_results": true,
+  "clear_search": true,
+  "product_details_drawer": true,
+  "specification_request_transfer": true,
+  "buyer_validation_preview_and_edit": true,
+  "supplier_validation_preview_and_edit": true,
+  "supplier_comment_in_preview": true,
+  "values_tested": 4,
+  "process_steps_tested": 5,
+  "process_pause_play": true,
+  "accordion_exclusivity": true,
+  "hero_pause_play": true,
+  "icon_computed_strokes": [
+    "1.4px"
+  ],
+  "contact_links_are_demo_only": true,
+  "all_checks_passed": true
+}
+
+{
+  "pass": "Responsive and accessibility regression",
+  "tested_widths": [
+    320,
+    390,
+    768,
+    1024,
+    1363
+  ],
+  "horizontal_page_overflow": false,
+  "broken_images": 0,
+  "mobile_menu": true,
+  "keyboard_category_navigation": true,
+  "native_dialog_escape": true,
+  "drawer_focus_return": true,
+  "reveals_total": 23,
+  "reveals_completed_during_walkthrough": 23,
+  "search_reset_regression": true,
+  "full_device_matrix": "Chromium browser at the listed CSS viewport widths; not a claim of testing physical devices or other engines.",
+  "reduced_motion": "CSS and JavaScript paths reviewed; native OS preference was not changed during this review.",
+  "all_checks_passed": true,
+  "drag_swipe_category_change": "Verified pointer drag advanced from category 2 to category 3"
+}
+
+Browser coverage: Chromium at the listed CSS widths. No claim of physical-device or cross-engine certification. Reduced-motion code paths were reviewed; native OS preference was not changed. Forms intentionally preview locally and never send real enquiries.
+
+2026-11-25 update: Removed hero image banner and shading. Kept original video bytes. Automated Chromium verification passed for seven categories and drawers, search/empty/reset, carousel, value tabs, accordions, process tabs, both form validation and preview flows, mobile navigation, all sections, and video autoplay/pause/resume. Checked 320, 375, 390, 768, 1024, 1440 and 1920px; no horizontal overflow, page errors or failed asset requests.

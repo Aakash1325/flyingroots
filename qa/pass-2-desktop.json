@@ -1,0 +1,21 @@
+{
+  "pass": "Desktop interactions and visual review",
+  "categories_tested": 7,
+  "search_matching_and_empty_results": true,
+  "clear_search": true,
+  "product_details_drawer": true,
+  "specification_request_transfer": true,
+  "buyer_validation_preview_and_edit": true,
+  "supplier_validation_preview_and_edit": true,
+  "supplier_comment_in_preview": true,
+  "values_tested": 4,
+  "process_steps_tested": 5,
+  "process_pause_play": true,
+  "accordion_exclusivity": true,
+  "hero_pause_play": true,
+  "icon_computed_strokes": [
+    "1.4px"
+  ],
+  "contact_links_are_demo_only": true,
+  "all_checks_passed": true
+}

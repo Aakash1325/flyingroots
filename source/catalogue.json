@@ -1,0 +1,197 @@
+[
+  {
+    "id": "fruits",
+    "n": "01",
+    "title": "Processed Fruits & Vegetables",
+    "short": "Fruits & Veg",
+    "image": "/images/cat-fruits.webp",
+    "alt": "Ripe mango, pineapple, pomegranate and tomatoes on green stone",
+    "summary": "Fruit pulps, purées and preserved vegetables for beverage, dairy, bakery, sauce and food-service manufacturing.",
+    "products": [
+      {
+        "name": "Mango & Mango Pulp",
+        "detail": "Alphonso, Totapuri"
+      },
+      {
+        "name": "Pineapple & Banana"
+      },
+      {
+        "name": "Pomegranate"
+      },
+      {
+        "name": "Tomato Puree & Pulp"
+      },
+      {
+        "name": "Gherkins",
+        "detail": "Preserved / Brined"
+      }
+    ],
+    "formats": "Aseptic bags in drums, OTS cans, bulk industrial food-grade packs; custom Brix and acidity specifications.",
+    "keywords": "pulp puree purée juice fruit vegetable aseptic drum cans ots brix acidity alphonso totapuri pickle brined"
+  },
+  {
+    "id": "dehydrated",
+    "n": "02",
+    "title": "Dehydrated Produce",
+    "short": "Dehydrated",
+    "image": "/images/cat-dehydrated.webp",
+    "alt": "Dehydrated onion, garlic flakes and ginger in ceramic bowls",
+    "summary": "Dried alliums and roots in calibrated cuts for seasoning blends, ready meals and food processing.",
+    "products": [
+      {
+        "name": "Red & White Onion"
+      },
+      {
+        "name": "Garlic"
+      },
+      {
+        "name": "Ginger"
+      }
+    ],
+    "formats": "Flakes, kibbled, minced, chopped, and calibrated granules with controlled moisture below 6%.",
+    "keywords": "dehydrated dried flakes kibbled minced chopped granules moisture dry onion garlic ginger"
+  },
+  {
+    "id": "powders",
+    "n": "03",
+    "title": "Powdered Ingredients",
+    "short": "Powders",
+    "image": "/images/cat-powders.webp",
+    "alt": "Tomato, coconut milk, onion, garlic and ginger powders",
+    "summary": "Spray-dried and dehydrated powders for seasonings, soups, instant mixes and formulated foods.",
+    "products": [
+      {
+        "name": "Tomato Powder"
+      },
+      {
+        "name": "Coconut Milk Powder"
+      },
+      {
+        "name": "Dehydrated Onion Powder"
+      },
+      {
+        "name": "Garlic Powder"
+      },
+      {
+        "name": "Ginger Powder"
+      }
+    ],
+    "formats": "Free-flowing food-grade powders in moisture-barrier liners for seasonings, soups, and instant mixes.",
+    "keywords": "powder powdered spray dried seasoning soup instant mix free-flowing liner"
+  },
+  {
+    "id": "iqf",
+    "n": "04",
+    "title": "IQF Frozen",
+    "short": "IQF Frozen",
+    "image": "/images/cat-iqf.webp",
+    "alt": "Individually frozen peas, okra and mixed vegetables with delicate frost",
+    "summary": "Individually quick-frozen vegetables for food-service, retail packing and industrial kitchens.",
+    "products": [
+      {
+        "name": "IQF Green Peas"
+      },
+      {
+        "name": "IQF Mixed Vegetables"
+      },
+      {
+        "name": "IQF Okra",
+        "detail": "Cut / Whole"
+      }
+    ],
+    "formats": "Blanched and quick-frozen at peak harvest to lock natural color, nutrition, and firm texture.",
+    "keywords": "iqf frozen individually quick frozen peas okra bhindi lady finger vegetables blanched"
+  },
+  {
+    "id": "spices",
+    "n": "05",
+    "title": "Indian Spices",
+    "short": "Spices",
+    "image": "/images/cat-spices.webp",
+    "alt": "Whole turmeric, chillies, cumin, coriander and black pepper",
+    "summary": "Whole and ground Indian spices, cleaned and graded to the parameters agreed in your specification.",
+    "products": [
+      {
+        "name": "Turmeric",
+        "detail": "High-curcumin fingers & powder"
+      },
+      {
+        "name": "Red Chilli",
+        "detail": "Whole, stemless & ground"
+      },
+      {
+        "name": "Cumin",
+        "detail": "Seeds"
+      },
+      {
+        "name": "Coriander",
+        "detail": "Seeds & powder"
+      },
+      {
+        "name": "Black Pepper",
+        "detail": "Tellicherry / MG1"
+      }
+    ],
+    "formats": "Steam-sterilized or raw, machine-cleaned, graded by ASTA / curcumin / volatile-oil specifications in 25 kg / 50 kg PP or Kraft bags.",
+    "keywords": "spice spices whole ground masala curcumin asta volatile oil steam sterilized jeera dhania haldi mirch"
+  },
+  {
+    "id": "leaves",
+    "n": "06",
+    "title": "Botanical & Culinary Leaves",
+    "short": "Leaves",
+    "image": "/images/cat-leaves.webp",
+    "alt": "Fresh moringa, curry leaves and mint with dried bay leaves",
+    "summary": "Shade-dried culinary and botanical leaves for herbal, nutraceutical, tea and seasoning applications.",
+    "products": [
+      {
+        "name": "Moringa",
+        "detail": "Leaves & leaf powder"
+      },
+      {
+        "name": "Curry Leaves",
+        "detail": "Dehydrated"
+      },
+      {
+        "name": "Mint Leaves"
+      },
+      {
+        "name": "Bay Leaves",
+        "detail": "Tej Patta"
+      },
+      {
+        "name": "Herbal and Botanical Leaves"
+      }
+    ],
+    "formats": "Shade-dried to retain vibrant chlorophyll, natural aroma, and phytonutrients; bulk cartons or bales.",
+    "keywords": "leaf leaves botanical herbal herb moringa drumstick curry mint pudina bay tej patta extract shade dried"
+  },
+  {
+    "id": "nuts",
+    "n": "07",
+    "title": "Nuts & Kernels",
+    "short": "Nuts & Kernels",
+    "image": "/images/cat-nuts.webp",
+    "alt": "Cashew kernels, peanuts, almonds and desiccated coconut",
+    "summary": "Cashews, groundnuts, almonds and desiccated coconut for snacking, confectionery, bakery and repacking.",
+    "products": [
+      {
+        "name": "Cashew Nuts",
+        "detail": "W180, W240, W320, Splits"
+      },
+      {
+        "name": "Peanuts / Groundnuts",
+        "detail": "Bold & Java"
+      },
+      {
+        "name": "Almonds"
+      },
+      {
+        "name": "Desiccated Coconut",
+        "detail": "High & low fat"
+      }
+    ],
+    "formats": "Vacuum-flushed tins, flexi-pouches, and export cartons calibrated for moisture, count, and aflatoxin compliance.",
+    "keywords": "nut nuts kernels cashew kaju w180 w240 w320 splits peanut groundnut bold java almond badam coconut desiccated aflatoxin"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "pass": "Responsive and accessibility regression",
+  "tested_widths": [
+    320,
+    390,
+    768,
+    1024,
+    1363
+  ],
+  "horizontal_page_overflow": false,
+  "broken_images": 0,
+  "mobile_menu": true,
+  "keyboard_category_navigation": true,
+  "native_dialog_escape": true,
+  "drawer_focus_return": true,
+  "reveals_total": 23,
+  "reveals_completed_during_walkthrough": 23,
+  "search_reset_regression": true,
+  "full_device_matrix": "Chromium browser at the listed CSS viewport widths; not a claim of testing physical devices or other engines.",
+  "reduced_motion": "CSS and JavaScript paths reviewed; native OS preference was not changed during this review.",
+  "all_checks_passed": true,
+  "drag_swipe_category_change": "Verified pointer drag advanced from category 2 to category 3"
+}
