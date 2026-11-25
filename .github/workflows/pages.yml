@@ -1,0 +1,61 @@
+name: Publish FlyingRoots
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+      - name: Import verified website package on first deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ ! -f source/build.py ]; then
+            package_dir="$RUNNER_TEMP/flyingroots-package"
+            mkdir -p "$package_dir"
+            gh release download v1.0.0 --repo "$GITHUB_REPOSITORY" --pattern FlyingRoots_Website.zip --dir "$package_dir"
+            echo "56d1a371b8fe8902f61ef4191a083a0a0189acd5a7739f08974809f3778ffd1b  $package_dir/FlyingRoots_Website.zip" | sha256sum --check
+            unzip -q "$package_dir/FlyingRoots_Website.zip" -d "$package_dir/extracted"
+            cp -a "$package_dir/extracted/FlyingRoots/." .
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add dist source qa Asset_Credits.txt FlyingRoots_Design_Decisions.txt Quality_Checks.txt README.txt
+            git commit -m "Import checked FlyingRoots website and original hero video"
+            git push origin HEAD:main
+          fi
+      - name: Build portable website
+        run: python3 source/build.py
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish website
+        id: deployment
+        uses: actions/deploy-pages@v4
