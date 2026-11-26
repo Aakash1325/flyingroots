@@ -106,3 +106,14 @@ Pass 2 - desktop behavior: exercised all seven categories, search and empty stat
 Pass 3 - responsive regression: checked the listed CSS widths, mobile menu, category keyboard controls, Escape dismissal, drawer focus restoration, search reset and a complete mobile scroll walkthrough. All 23 section-reveal blocks became visible. No broken image or horizontal page overflow was found in the tested layouts.
 
 Limits: these were Chromium-based browser checks at the listed CSS widths, not tests on physical phones or every browser engine. Reduced-motion handling was reviewed in CSS and JavaScript; the browser's OS preference was not changed. No claim is made that fictional contact links or form previews deliver real enquiries.
+
+2026-11-26 APPROVED VISUAL REFRESH (SUPERSEDES EARLIER PRESENTATION/VIDEO NOTES)
+1. Replace the previous footer with a reference-inspired layered meadow invitation, dark green navigation area, SVG botanical accents and working contact/back-to-top links.
+2. Redesign the story as an editorial origin/ingredients image pair, concise introduction and three aligned principles.
+3. Reduce typography throughout: headings, subheadings, body, controls and labels have distinct priorities; minimum visible type is 12px. Mobile form inputs remain 16px to avoid focus zoom.
+4. Apply one-time reveal motion, short hover/press/focus feedback, cancel superseded animations and respect reduced motion. The card section keeps its shared intrinsic sizing.
+5. Use cool forest, olive and sage greens with a cool neutral surface, consistent image crops and lighting; add a new green agricultural landscape rather than warm or ivory imagery.
+6. Use a consistent 1200px maximum content grid, aligned text baselines, restrained line lengths and 96/80/64px section spacing.
+7. Reduce primary logo to 168px desktop / 144px mobile; keep footer marks similarly restrained.
+8. Add sparse original mandala-inspired leaf ornaments, outside main reading areas and excluded from keyboard/assistive interaction.
+9. Optimize the original full-length hero film into separate desktop and mobile H.264 files with fast-start metadata and an immediate matching video-frame preview. The original archival film is retained but is not requested by the page.

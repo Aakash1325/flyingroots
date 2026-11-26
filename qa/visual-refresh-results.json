@@ -1,0 +1,58 @@
+[
+  {
+    "width": 320,
+    "sectionHeight": 1728.609375,
+    "heightDelta": 0,
+    "minimumTypePx": 12,
+    "logoWidth": 144,
+    "errors": []
+  },
+  {
+    "width": 375,
+    "sectionHeight": 1642.03125,
+    "heightDelta": 0,
+    "minimumTypePx": 12,
+    "logoWidth": 144,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "sectionHeight": 1642.03125,
+    "heightDelta": 0,
+    "minimumTypePx": 12,
+    "logoWidth": 144,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "sectionHeight": 1550.546875,
+    "heightDelta": 0,
+    "minimumTypePx": 12,
+    "logoWidth": 150,
+    "errors": []
+  },
+  {
+    "width": 1024,
+    "sectionHeight": 1131.921875,
+    "heightDelta": 0,
+    "minimumTypePx": 12,
+    "logoWidth": 150,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "sectionHeight": 1152.390625,
+    "heightDelta": 0,
+    "minimumTypePx": 12,
+    "logoWidth": 168,
+    "errors": []
+  },
+  {
+    "width": 1920,
+    "sectionHeight": 1152.390625,
+    "heightDelta": 0,
+    "minimumTypePx": 12,
+    "logoWidth": 168,
+    "errors": []
+  }
+]

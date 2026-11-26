@@ -16,7 +16,8 @@ dist/site.js - interactions and motion
 dist/catalogue.json - category and product data
 dist/process.json - process stages
 dist/images - supplied logo derivatives and generated photography
-dist/videos/flyingroots-hero.mp4 - unchanged original supplied film
+dist/videos/hero-desktop-v2.mp4 and hero-mobile-v2.mp4 - optimized full-length film for desktop and mobile
+The original source film remains in dist/videos/flyingroots-hero.mp4 as an archival source.
 
 Editable build sources are in source/. To regenerate dist/index.html and its text assets, run:
 python3 source/build.py
@@ -28,6 +29,6 @@ Company details are fictional. Contact actions explain the concept instead of co
 
 See FlyingRoots_Design_Decisions.txt for the design rationale and Quality_Checks.txt for verification details.
 
-The supplied video remains 1280 x 720 and approximately 45 MB. It has not been compressed or re-encoded.
+Video delivery was optimized on 2026-11-26: desktop H.264 is 1280 x 720 / 6,281,108 bytes; mobile H.264 is 768 x 432 / 1,421,848 bytes. Both preserve the complete approximately 48.6-second film and place MP4 metadata before media data for streaming. A 73,554-byte preview extracted from the same film appears while it starts.
 
-GitHub repository selection, publication and portfolio integration are pending the chosen destination. This archive is ready for review and deployment.
+Published on GitHub Pages at https://aakash1325.github.io/flyingroots/. Source changes on main build and publish through .github/workflows/pages.yml.

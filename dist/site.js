@@ -26,8 +26,10 @@
     if (!('IntersectionObserver' in window) || reduced.matches) return;
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
-    }), {rootMargin:'0px 0px -35px 0px',threshold:0.04});
+    }), {rootMargin:'0px 0px -20px 0px',threshold:0.02});
     $$('.reveal').forEach(element => observer.observe(element));
+    const footer = $('.meadow-footer');
+    if (footer) observer.observe(footer);
     document.body.classList.add('motion-ready');
     reduced.addEventListener('change', () => {
       if (reduced.matches) { document.body.classList.remove('motion-ready'); observer.disconnect(); }
@@ -51,11 +53,11 @@
   }
   activeNav('top');
   if ('IntersectionObserver' in window) {
-    const sections = $$('main > section[id]');
+    const sections = $$('main > section[id], footer[id]');
     const navObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const mapped = {intro:'top',trade:'process'};
+          const mapped = {intro:'top',trade:'process',footer:'contact'};
           activeNav(mapped[entry.target.id] || entry.target.id);
         }
       });
@@ -81,7 +83,7 @@
   drawer.addEventListener('close', () => { syncModalState(); drawerTrigger?.focus({preventScroll:true}); });
   window.addEventListener('resize', () => { if (innerWidth > 960 && menu.open) menu.close(); }, {passive:true});
 
-  /* The supplied film is never resized, transcoded or replaced with a mobile encode. */
+  /* Full-length film with optimized desktop/mobile sources and a matching first-frame preview. */
   const video = $('#hero-video');
   const videoButton = $('#video-control');
   let userPausedVideo = reduced.matches || !!navigator.connection?.saveData;

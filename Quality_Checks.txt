@@ -63,3 +63,10 @@ November 25, 2026
 Browser coverage: Chromium at the listed CSS widths. No claim of physical-device or cross-engine certification. Reduced-motion code paths were reviewed; native OS preference was not changed. Forms intentionally preview locally and never send real enquiries.
 
 2026-11-25 update: Removed hero image banner and shading. Kept original video bytes. Automated Chromium verification passed for seven categories and drawers, search/empty/reset, carousel, value tabs, accordions, process tabs, both form validation and preview flows, mobile navigation, all sections, and video autoplay/pause/resume. Checked 320, 375, 390, 768, 1024, 1440 and 1920px; no horizontal overflow, page errors or failed asset requests.
+
+2026-11-26 VISUAL REFRESH VERIFICATION
+Seven viewport widths: 320, 375, 390, 768, 1024, 1440 and 1920px. No category-height changes across seven categories or empty-search state, no horizontal overflow, no visible text below 12px, smaller logos, and correct footer/mandala markup. Buyer/supplier validation and previews, all catalogue controls and drawers, values, accordions, process, mobile navigation and video controls passed with no page errors or failed asset requests.
+Cold-cache synthetic Chromium playback over 2 Mbps / 100ms latency: mobile first playback within 1,909ms; desktop within 3,484ms. This is a local throttled measurement; real networks and devices vary. Full video duration retained: mobile 48.625s; desktop 48.615233s. MP4 moov precedes mdat in both delivery files.
+Visual review: mobile and desktop story, catalogue, forms, footer, hero and remaining sections inspected. Footer bottom remains within footer bounds. Reduced-motion rendering keeps all content available.
+
+Normal-motion scroll walkthrough passed at 390 and 1440px; every rendered reveal block became visible, footer navigation activated Contact, and switching to reduced motion exposed all content without transitions.

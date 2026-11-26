@@ -35,3 +35,9 @@ dist/images/hero-poster.webp
 Photorealistic landscape editorial photograph of verdant agricultural fields in South India, gentle green hills and distant coconut palms in morning light. Dark natural green foreground, atmospheric real sky, a premium cinematic agricultural landscape. Wide composition, no people or text.
 
 WebP derivatives are used on the website. The social-sharing JPG derives from the generated hero landscape. Source generated images are also shown in this conversation.
+
+2026-11-26 VISUAL UPDATE
+- story-fields-v2.webp: newly generated ChatGPT editorial landscape, created for FlyingRoots with cool forest and leaf greens. Generated source remains separate from the optimized website asset.
+- Meadow-style footer: a lightweight custom HTML/CSS/SVG adaptation of the supplied visual reference at https://cdn.21st.dev/kedhareswer/meadow-rise-footer/default/bundle.1793707218362-0cf0abe4-6e17-4f0c-8845-fde3a414e98a.html. Six original SVG hill paths and original botanical line work; no copied React runtime or continuous canvas rendering.
+- Mandala-inspired ornaments: original decorative SVG leaf geometry, repeated through a shared symbol and hidden from assistive technology.
+- hero-desktop-v2.mp4 / hero-mobile-v2.mp4: full-length H.264 delivery derivatives of the supplied original film, prepared with FFmpeg and fast-start MP4 metadata. hero-first-frame.webp is extracted from the film itself.

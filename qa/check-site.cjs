@@ -9,7 +9,7 @@ const assert = require('node:assert/strict');
  await page.goto(process.env.SITE_URL || 'http://127.0.0.1:8000/',{waitUntil:'domcontentloaded'});
  await page.locator('.category-panel[data-active=true] h3').waitFor();
  assert.equal(await page.locator('.hero-poster,.hero-shade').count(),0);
- assert.equal(await page.locator('#hero-video').getAttribute('poster'),null);
+ assert.match(await page.locator('#hero-video').getAttribute('poster'),/hero-first-frame/);
  const anchors=await page.evaluate(()=>[...document.querySelectorAll('a[href^="#"]')].map(a=>a.getAttribute('href')).filter(h=>h.length>1&&!document.getElementById(h.slice(1))));
  assert.deepEqual(anchors,[]);
  for(const id of ['fruits','dehydrated','powders','iqf','spices','leaves','nuts']){
