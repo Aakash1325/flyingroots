@@ -7,7 +7,7 @@ const assert = require('node:assert/strict');
  page.on('pageerror',e=>errors.push(e.message));
  page.on('response',r=>{if(r.status()>=400)failures.push([r.status(),r.url()]);});
  await page.goto(process.env.SITE_URL || 'http://127.0.0.1:8000/',{waitUntil:'domcontentloaded'});
- await page.locator('#product-panel h3').waitFor();
+ await page.locator('.category-panel[data-active=true] h3').waitFor();
  assert.equal(await page.locator('.hero-poster,.hero-shade').count(),0);
  assert.equal(await page.locator('#hero-video').getAttribute('poster'),null);
  const anchors=await page.evaluate(()=>[...document.querySelectorAll('a[href^="#"]')].map(a=>a.getAttribute('href')).filter(h=>h.length>1&&!document.getElementById(h.slice(1))));
@@ -15,7 +15,7 @@ const assert = require('node:assert/strict');
  for(const id of ['fruits','dehydrated','powders','iqf','spices','leaves','nuts']){
   await page.locator(`[data-category="${id}"]`).click();
   assert.equal(await page.locator(`[data-category="${id}"]`).getAttribute('aria-selected'),'true');
-  await page.locator('[data-open-details]').click();
+  await page.locator('[data-open-details]:visible').click();
   assert.equal(await page.locator('#product-drawer').evaluate(e=>e.open),true);
   await page.locator('#drawer-close').click();
  }
@@ -58,7 +58,7 @@ const assert = require('node:assert/strict');
  for(const width of [320,375,390,768,1024,1440,1920]){
   await page.setViewportSize({width,height:900});
   await page.goto(process.env.SITE_URL || 'http://127.0.0.1:8000/',{waitUntil:'domcontentloaded'});
-  await page.locator('#product-panel h3').waitFor();
+  await page.locator('.category-panel[data-active=true] h3').waitFor();
   const size=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,hero:document.querySelector('.hero').getBoundingClientRect().width}));
   layouts.push(size);assert.ok(size.scroll<=width,JSON.stringify(size));
   if(width<=960){

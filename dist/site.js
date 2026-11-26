@@ -6,8 +6,12 @@
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const icon = name => `<svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-${name}"></use></svg>`;
+  const motions = new WeakMap();
   const animate = (element, frames, options = {}) => {
-    if (!reduced.matches && element?.animate) element.animate(frames, {duration:350, easing:'cubic-bezier(.22,.8,.2,1)', ...options});
+    motions.get(element)?.cancel();
+    if (reduced.matches || !element?.animate) return;
+    const motion = element.animate(frames, {duration:180, easing:'cubic-bezier(.22,.8,.2,1)', ...options});
+    motions.set(element, motion);
   };
   let toastTimer;
   function toast(message) {
@@ -120,13 +124,14 @@
       else if (event.key === 'End') next = buttons.length - 1;
       else return;
       event.preventDefault(); activate(buttons[next]); buttons[next].focus({preventScroll:true});
-      if (group.classList.contains('category-tabs')) buttons[next].scrollIntoView({block:'nearest',inline:'nearest',behavior:reduced.matches?'instant':'smooth'});
+      if (group.classList.contains('category-tabs')) revealCategoryTab(buttons[next]);
     });
   }
 
   const values = ['clear.','traceable.','transparent.','accountable.'];
   const valueTabs = $('.values-tabs');
   function setValue(button) {
+    if (button.getAttribute('aria-selected') === 'true') return;
     $$('button',valueTabs).forEach(tab => { const chosen = tab === button; tab.setAttribute('aria-selected',String(chosen)); tab.tabIndex = chosen ? 0 : -1; });
     const word = $('#value-word'); word.textContent = values[Number(button.dataset.value)];
     $('#value-panel').textContent = $('span',button).textContent;
@@ -271,13 +276,25 @@
   }
 
   /* Catalogue: filtering includes product names, processing formats and specifications. */
-  let catalogue = [], visible = [], selected = 0;
+  const catalogue = JSON.parse($('#catalogue-data').textContent);
+  let visible = [...catalogue], selected = 0;
   const deck = $('#catalogue-deck');
   const tabs = $('.category-tabs');
   const search = $('#product-search');
   const fullName = product => product.name + (product.detail ? ` (${product.detail})` : '');
   const normalize = value => value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
   let queryWords = [];
+  const categoryButtons = $$('[data-category]', tabs);
+  const categoryCards = $$('[data-card]', deck);
+  const categoryPanels = $$('.category-panel');
+  const searchIndex = new Map(catalogue.map(category => [category.id, normalize([category.title,category.short,category.summary,category.formats,category.keywords,...category.products.map(fullName)].join(' '))]));
+  let activeCategory = '';
+  function revealCategoryTab(button) {
+    if (tabs.scrollWidth <= tabs.clientWidth) return;
+    const left = button.offsetLeft - tabs.offsetLeft;
+    if (left < tabs.scrollLeft + 20) tabs.scrollTo({left:Math.max(0,left-20),behavior:reduced.matches?'instant':'smooth'});
+    else if (left + button.offsetWidth > tabs.scrollLeft + tabs.clientWidth - 20) tabs.scrollTo({left:left + button.offsetWidth-tabs.clientWidth+20,behavior:reduced.matches?'instant':'smooth'});
+  }
   function matchingProducts(category) {
     const found = category.products.filter(product => queryWords.every(word => normalize(fullName(product)).includes(word)));
     return found.length ? found : category.products;
@@ -286,38 +303,50 @@
     if (!visible.length) return;
     selected = (index + visible.length) % visible.length;
     const category = visible[selected];
-    $$('[data-category]',tabs).forEach(button => {
+    categoryButtons.forEach(button => {
       const chosen = button.dataset.category === category.id;
       button.setAttribute('aria-selected',String(chosen)); button.tabIndex = chosen ? 0 : -1;
     });
-    $$('[data-card]',deck).forEach(card => {
-      const product = catalogue[Number(card.dataset.card)];
-      const position = visible.indexOf(product) - selected;
-      const exists = visible.includes(product);
-      card.hidden = !exists;
-      card.style.setProperty('--pos',position);
-      card.style.setProperty('--scale',String(1-Math.min(Math.abs(position),3)*.095));
-      card.style.setProperty('--opacity',Math.abs(position)>2?'0':String(1-Math.abs(position)*.17));
-      card.style.setProperty('--z',String(10-Math.abs(position)));
-      card.style.pointerEvents = Math.abs(position)>2 ? 'none' : '';
-      card.tabIndex = position === 0 ? 0 : -1;
+    categoryCards.forEach((card, cardIndex) => {
+      const product = catalogue[cardIndex];
+      const visibleIndex = visible.indexOf(product);
+      let position = visibleIndex - selected;
+      // Shortest circular route prevents the entire stack sweeping across on wrap.
+      if (position > visible.length / 2) position -= visible.length;
+      if (position < -visible.length / 2) position += visible.length;
+      const onStage = visibleIndex >= 0 && Math.abs(position) <= 1;
+      card.style.setProperty('--pos',String(Math.max(-2,Math.min(2,position))));
+      card.style.setProperty('--scale',position === 0 ? '1' : '.91');
+      card.style.setProperty('--opacity',onStage ? (position === 0 ? '1' : '.75') : '0');
+      card.style.setProperty('--z',position === 0 ? '3' : '1');
+      card.style.pointerEvents = onStage ? '' : 'none';
+      card.tabIndex = position === 0 && onStage ? 0 : -1;
       card.setAttribute('aria-label',`${position === 0?'View details for':'Select'} ${product.title}`);
-      if (position === 0) card.setAttribute('aria-current','true'); else card.removeAttribute('aria-current');
-      card.setAttribute('aria-hidden',String(Math.abs(position)>2));
+      card.toggleAttribute('aria-current',position === 0 && onStage);
+      if (position === 0 && onStage) card.setAttribute('aria-current','true');
+      card.setAttribute('aria-hidden',String(!onStage));
+      card.inert = !onStage;
     });
     $('#gallery-count').textContent = `${selected+1} / ${visible.length}`;
     $('#previous-category').disabled = visible.length < 2; $('#next-category').disabled = visible.length < 2;
-    const panel = $('#product-panel');
-    panel.setAttribute('aria-labelledby',`category-${category.id}`);
-    panel.innerHTML = `<p class="eyebrow">${category.products.length} product lines · ${escape(category.short)}</p><h3>${escape(category.title)}</h3><p>${escape(category.summary)}</p><ul class="product-lines">${matchingProducts(category).map(product => `<li><button type="button" data-add-product="${escape(fullName(product))}" aria-label="Enquire about ${escape(fullName(product))}">${escape(fullName(product))}${icon('plus')}</button></li>`).join('')}</ul><div class="spec-copy"><strong>Formats & specifications</strong><p>${escape(category.formats)}</p></div><div class="actions"><button class="button green" type="button" data-add-category>Enquire about this category</button><button class="text-button" type="button" data-spec-request>Request a specification sheet</button></div><button class="text-button" type="button" data-open-details>View full product details</button>`;
-    if (animatePanel) animate(panel,[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}]);
+    categoryPanels.forEach(panel => {
+      const chosen = panel.dataset.panel === category.id;
+      panel.dataset.active = String(chosen);
+      panel.inert = !chosen;
+      if (chosen) panel.removeAttribute('aria-hidden'); else panel.setAttribute('aria-hidden','true');
+      // Highlight search hits without removing products and changing the layout.
+      $$('[data-add-product]',panel).forEach(button => button.classList.toggle('search-match', queryWords.length > 0 && queryWords.every(word => normalize(button.dataset.addProduct).includes(word))));
+      if (chosen && activeCategory !== category.id && animatePanel) animate(panel,[{opacity:.65,transform:'translateY(4px)'},{opacity:1,transform:'none'}]);
+      else if (!chosen) motions.get(panel)?.cancel();
+    });
+    activeCategory = category.id;
   }
   function filterCatalogue() {
     const query = search.value.trim(); queryWords = normalize(query).split(/[\s,]+/).filter(Boolean);
     const active = visible[selected]?.id;
-    visible = catalogue.filter(category => queryWords.every(word => normalize([category.title,category.short,category.summary,category.formats,category.keywords,...category.products.map(fullName)].join(' ')).includes(word)));
-    $$('[data-category]',tabs).forEach(button => { button.disabled = !visible.some(category => category.id === button.dataset.category); });
-    $('#product-layout').hidden = !visible.length; tabs.hidden = !visible.length; $('#empty-state').hidden = !!visible.length;
+    visible = catalogue.filter(category => queryWords.every(word => searchIndex.get(category.id).includes(word)));
+    categoryButtons.forEach(button => { button.disabled = !visible.some(category => category.id === button.dataset.category); });
+    $('#product-layout').classList.toggle('is-empty',!visible.length); $('#product-layout').inert = !visible.length; $('#product-layout').setAttribute('aria-hidden',String(!visible.length)); $('#empty-state').hidden = !!visible.length;
     $('#empty-query').textContent = `“${query}”`; $('#search-clear').hidden = !query;
     $('#search-status').textContent = query ? `${visible.length} matching ${visible.length===1?'category':'categories'}` : '7 categories to explore';
     selected = Math.max(0,visible.findIndex(category => category.id === active));
@@ -331,7 +360,7 @@
     drawerTrigger = trigger || document.activeElement;
     $('#drawer-content').innerHTML = `<img class="drawer-image" src=".${category.image}" width="1536" height="1024" alt="${escape(category.alt)}"><div class="drawer-copy"><p class="eyebrow">The FlyingRoots collection</p><h2 id="drawer-title">${escape(category.title)}</h2><p>${escape(category.summary)}</p><ul class="drawer-products">${category.products.map(product => `<li><button type="button" data-add-product="${escape(fullName(product))}">${escape(fullName(product))}${icon('plus')}</button></li>`).join('')}</ul><div class="spec-copy"><strong>Formats & specifications</strong><p>${escape(category.formats)}</p></div><div class="actions"><button class="button green" type="button" data-drawer-enquire>Enquire about this category</button><button class="button cream" type="button" data-drawer-spec>Request specifications</button></div></div>`;
     drawer.showModal(); syncModalState(); drawer.scrollTop = 0;
-    animate(drawer,[{opacity:0,transform:innerWidth<640?'translateY(35px)':'translateX(35px)'},{opacity:1,transform:'none'}],{duration:420});
+    animate(drawer,[{opacity:0,transform:innerWidth<640?'translateY(35px)':'translateX(35px)'},{opacity:1,transform:'none'}],{duration:260});
   }
   search.addEventListener('input',filterCatalogue);
   $('#search-clear').addEventListener('click', () => {clearSearch();search.focus();});
@@ -357,6 +386,7 @@
     if (swiped) {swiped=false;return;}
     const card = event.target.closest('[data-card]'); if (!card) return;
     const category = catalogue[Number(card.dataset.card)], index = visible.indexOf(category);
+    if (index < 0) return;
     if (index === selected) showDrawer(category,card); else selectCategory(index);
   });
   document.addEventListener('click', event => {
@@ -368,8 +398,11 @@
   });
 
   /* Process slideshow pauses offscreen, on hover/focus, when manually selected and for reduced motion. */
-  let steps = [], stepIndex = 0, processTimer, processVisible = false, processPaused = reduced.matches, processHovered = false, processFocused = false;
+  const steps = JSON.parse($('#process-data').textContent);
+  let stepIndex = 0, processTimer, processVisible = false, processPaused = reduced.matches, processHovered = false, processFocused = false;
   const processGroup = $('.process-steps'), processLayout = $('.process-layout');
+  let processImageRequest = 0;
+  const processImages = steps.map(step => {const image = new Image(); image.decoding='async'; image.src=`./images/${step[2]}.webp`; return image;});
   function canCycle() {return steps.length && processVisible && !processPaused && !processHovered && !processFocused && !document.hidden && !reduced.matches;}
   function scheduleProcess() {
     clearTimeout(processTimer);
@@ -381,12 +414,23 @@
   }
   function selectStep(index, manual = false) {
     if (!steps.length) return;
-    stepIndex=index; if (manual) processPaused=true;
+    if (manual) processPaused=true;
+    if (stepIndex === index) {processButton();scheduleProcess();return;}
+    stepIndex=index;
     $$('[data-step]').forEach(button => {const active=Number(button.dataset.step)===index;button.setAttribute('aria-selected',String(active));button.tabIndex=active?0:-1;});
     $('#process-panel').setAttribute('aria-labelledby',`step-${index}`);
-    const image = $('.process-photo'); image.src=`./images/${steps[index][2]}.webp`;image.alt=steps[index][0]+' — FlyingRoots ingredient and trade photography';
+    const image = $('.process-photo');
+    const request = ++processImageRequest;
+    const nextImage = processImages[index];
+    const showImage = () => {
+      if (request !== processImageRequest) return;
+      image.src = nextImage.src; image.alt=steps[index][0]+' — FlyingRoots ingredient and trade photography';
+      animate(image,[{opacity:.8},{opacity:1}]);
+    };
+    if (nextImage.complete && nextImage.naturalWidth) showImage();
+    else nextImage.decode().then(showImage).catch(() => {});
     $('#process-name').textContent=steps[index][0]; $('#process-count').textContent=`0${index+1} / 05`;
-    animate(image,[{opacity:.45,transform:'scale(1.025)'},{opacity:1,transform:'scale(1)'}],{duration:500});
+
     processButton();scheduleProcess();
   }
   $$('[data-step]').forEach(button => button.addEventListener('click', () => selectStep(Number(button.dataset.step),true)));
@@ -401,7 +445,7 @@
   reduced.addEventListener('change', () => {if(reduced.matches)processPaused=true;processButton();scheduleProcess();});
   document.addEventListener('visibilitychange', () => {syncVideo();scheduleProcess();});
 
-  Promise.all([fetch('./catalogue.json').then(response => {if(!response.ok)throw Error('catalogue');return response.json();}),fetch('./process.json').then(response => {if(!response.ok)throw Error('process');return response.json();})])
-    .then(([products,workflow]) => {catalogue=products;visible=[...products];steps=workflow;selectCategory(0,false);processButton();scheduleProcess();})
-    .catch(() => {$('#search-status').textContent='The collection could not load. Please refresh the page.';toast('Please serve this website over HTTP to use its interactive collection.');});
+  selectCategory(0,false);
+  processButton();
+  scheduleProcess();
 })();

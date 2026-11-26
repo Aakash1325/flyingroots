@@ -1,0 +1,109 @@
+{
+  "date": "2026-11-26",
+  "stability": [
+    {
+      "width": 320,
+      "version": "baseline",
+      "category_height_delta_px": 193.765625
+    },
+    {
+      "width": 320,
+      "version": "updated",
+      "category_height_delta_px": 0
+    },
+    {
+      "width": 390,
+      "version": "baseline",
+      "category_height_delta_px": 228
+    },
+    {
+      "width": 390,
+      "version": "updated",
+      "category_height_delta_px": 0
+    },
+    {
+      "width": 768,
+      "version": "baseline",
+      "category_height_delta_px": 151.578125
+    },
+    {
+      "width": 768,
+      "version": "updated",
+      "category_height_delta_px": 0
+    },
+    {
+      "width": 1024,
+      "version": "baseline",
+      "category_height_delta_px": 218.671875
+    },
+    {
+      "width": 1024,
+      "version": "updated",
+      "category_height_delta_px": 0
+    },
+    {
+      "width": 1440,
+      "version": "baseline",
+      "category_height_delta_px": 129.703125
+    },
+    {
+      "width": 1440,
+      "version": "updated",
+      "category_height_delta_px": 0
+    },
+    {
+      "width": 1920,
+      "version": "baseline",
+      "category_height_delta_px": 138.734375
+    },
+    {
+      "width": 1920,
+      "version": "updated",
+      "category_height_delta_px": 0
+    }
+  ],
+  "rapid_clicks": [
+    {
+      "width": 320,
+      "p95HandlerMs": 11.5,
+      "maxHandlerMs": 16.700000000186265,
+      "p95FrameMs": 50,
+      "maxConcurrentPanelAnimations": 1,
+      "heightDelta": 0,
+      "active": "nuts",
+      "errors": []
+    },
+    {
+      "width": 390,
+      "p95HandlerMs": 4.2999999998137355,
+      "maxHandlerMs": 6.899999999906868,
+      "p95FrameMs": 16.700000000000728,
+      "maxConcurrentPanelAnimations": 1,
+      "heightDelta": 0,
+      "active": "nuts",
+      "errors": []
+    },
+    {
+      "width": 768,
+      "p95HandlerMs": 3.800000000046566,
+      "maxHandlerMs": 5.199999999953434,
+      "p95FrameMs": 16.800000000000182,
+      "maxConcurrentPanelAnimations": 1,
+      "heightDelta": 0,
+      "active": "nuts",
+      "errors": []
+    },
+    {
+      "width": 1440,
+      "p95HandlerMs": 4.300000000046566,
+      "maxHandlerMs": 5.199999999953434,
+      "p95FrameMs": 16.799999999999272,
+      "maxConcurrentPanelAnimations": 1,
+      "heightDelta": 0,
+      "active": "nuts",
+      "errors": []
+    }
+  ],
+  "conditions": "Headless Chromium; 70 selections per width; CPU throttled 4x. Frame timings are synthetic measurements and vary with hardware.",
+  "regression": "All seven categories, search/empty state, category keyboard navigation, wrap, drawers, specification transfer, buyer and supplier previews, all sections, responsive navigation, and video pause/resume passed."
+}
