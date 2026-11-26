@@ -250,3 +250,56 @@ p{font-size:14px;line-height:1.75}
 @media(max-width:640px){.meadow-landscape{inset:190px 0 0}}
 /* Reserve the same search-field height when its clear control appears. */
 .search-wrap{padding-block:6px}
+/* Review 3: centered-left hero, stronger hierarchy, and a taller centered nav. */
+:root{--nav-height:108px}
+html{scroll-padding-top:calc(var(--nav-height) + 12px)}
+.nav-wrap{display:grid;grid-template-columns:1fr auto 1fr;min-height:108px;position:relative;align-items:center}
+.nav-wrap .brand{justify-self:start}
+.desktop-nav{justify-self:center;margin-inline:0}
+.desktop-nav a{padding-block:18px}
+.header-cta{justify-self:end}
+.site-header.scrolled .nav-wrap{min-height:92px}
+.hero{align-items:center}
+.hero-content{padding-block:0}
+.hero h1{font-size:clamp(48px,6vw,84px);line-height:1.05}
+.hero-tagline{font-family:Urbanist,'Google Sans',sans-serif;font-style:italic;font-weight:500;font-size:clamp(22px,2.2vw,29px);line-height:1.35;letter-spacing:-.025em;max-width:36ch;margin-top:22px}
+.hero-description{font-size:15px;line-height:1.8}
+h2{font-size:clamp(34px,4vw,52px);line-height:1.12}
+h3{font-size:clamp(24px,2.3vw,31px);line-height:1.25}
+p{font-size:15px;line-height:1.75}
+.section-heading>p,.center-heading>p:last-child{font-size:15px;line-height:1.75}
+.story-intro>p:first-child{font-size:16px}
+.story-principles h3{font-size:18px;line-height:1.45}
+.story-principles p{font-size:14px}
+.product-panel h3{font-size:34px}
+.category-panel>p:not(.eyebrow){font-size:15px}
+.card-caption strong{font-size:26px}
+.values-heading{display:flex;justify-content:space-between;align-items:center;gap:24px}
+.values-lead{font-family:'Google Sans',sans-serif;font-style:normal;font-size:22px;font-weight:500;line-height:1.5;letter-spacing:-.02em;max-width:38ch}
+.values-control{flex:none;background:#e9f0e40d;color:var(--green);border-color:#e9f0e430}
+.values-control:hover,.values-control:focus-visible{background:var(--green);color:var(--forest)}
+.value-word{font-size:clamp(44px,6.4vw,84px);min-height:1.25em}
+.values-tabs strong{font-size:15px}
+.values-tabs span{font-size:13px}
+.about-image p{font-size:16px;line-height:1.6}
+.approach>h3{font-size:32px}
+.service-copy h3{font-size:26px}
+.service-copy p{font-size:15px}
+.process-caption h3{font-size:32px}
+.process-step strong{font-size:16px}
+.process-step>span>span{font-size:14px}
+.contact-copy h2{font-size:42px}
+.contact-copy>p{font-size:15px}
+.contact-card h3{font-size:26px}
+.form-heading h3{font-size:27px}
+.drawer-copy h2{font-size:38px}
+.meadow-invitation-copy h2{font-size:clamp(36px,4.4vw,56px)}
+.mobile-menu>p{font-size:16px}
+.motion-ready .reveal{transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
+.hero-content>*{animation-duration:.85s}
+@media(min-width:1600px){.hero-content{padding-block:0}}
+@media(max-width:1150px){.desktop-nav a{padding-block:18px}}
+@media(max-width:960px){:root{--nav-height:96px}.nav-wrap{display:flex;min-height:96px}.site-header.scrolled .nav-wrap{min-height:96px}.product-panel h3{font-size:34px}.contact-copy h2{font-size:40px}}
+@media(max-width:640px){:root{--nav-height:92px}.hero{min-height:720px}.nav-wrap{min-height:92px}.site-header.scrolled .nav-wrap{min-height:88px}.hero-content{padding-block:0}.hero h1{font-size:clamp(44px,11vw,58px);line-height:1.06;max-width:14ch}.hero-tagline{font-size:23px;line-height:1.4;max-width:25ch}.hero-description{font-size:14px;line-height:1.8}.section-heading h2,.center-heading h2{font-size:36px}.story-heading h2{font-size:38px}.section-heading>p,.center-heading>p:last-child{font-size:14px}.story-intro p+p{font-size:14px}.story-principles h3{font-size:17px}.story-principles p{font-size:14px}.product-panel h3{font-size:30px}.category-panel>p:not(.eyebrow){font-size:14px}.card-caption strong{font-size:24px}.values-heading{gap:16px}.values-lead{font-size:18px;max-width:28ch}.values-control{width:40px;height:40px}.value-word{font-size:clamp(38px,11vw,56px);line-height:1.2;min-height:1.25em}.values-tabs strong{font-size:14px}.values-tabs span{font-size:12px}.about-image p{font-size:16px}.approach>h3{font-size:30px}.service-copy h3{font-size:25px}.service-copy p{font-size:14px}.process-caption h3{font-size:28px}.process-step strong{font-size:15px}.process-step>span>span{font-size:13px}.contact-copy h2{font-size:36px}.contact-copy>p{font-size:14px}.contact-card h3{font-size:25px}.form-heading h3{font-size:26px}.drawer-copy h2{font-size:33px}.meadow-invitation-copy h2{font-size:38px}}
+@media(max-width:360px){.hero h1{font-size:43px}.hero-tagline{font-size:22px}.value-word{font-size:38px}.meadow-invitation-copy h2{font-size:34px}}
+@media(prefers-reduced-motion:reduce){.motion-ready .reveal{transition:none!important;opacity:1!important;transform:none!important}.hero-content>*{animation:none!important}}

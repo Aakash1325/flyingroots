@@ -57,7 +57,7 @@
     const navObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const mapped = {intro:'top',trade:'process',footer:'contact'};
+          const mapped = {footer:'contact'};
           activeNav(mapped[entry.target.id] || entry.target.id);
         }
       });
@@ -130,18 +130,48 @@
     });
   }
 
+  /* Four-second rotation is suspended when the content cannot be read or is
+     being operated. Manual selection is immediate and restarts the full hold. */
   const values = ['clear.','traceable.','transparent.','accountable.'];
   const valueTabs = $('.values-tabs');
-  function setValue(button) {
-    if (button.getAttribute('aria-selected') === 'true') return;
-    $$('button',valueTabs).forEach(tab => { const chosen = tab === button; tab.setAttribute('aria-selected',String(chosen)); tab.tabIndex = chosen ? 0 : -1; });
-    const word = $('#value-word'); word.textContent = values[Number(button.dataset.value)];
-    $('#value-panel').textContent = $('span',button).textContent;
-    $('#value-panel').setAttribute('aria-labelledby',button.id);
-    animate(word,[{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'none'}]);
+  const valueButtons = $$('button', valueTabs);
+  const valuesBlock = $('.values-block');
+  const valuesControl = $('#values-control');
+  let valueIndex = 0, valuesTimer, valuesVisible = !('IntersectionObserver' in window);
+  let valuesPaused = reduced.matches, valuesHovered = false, valuesFocused = false;
+  function valuesButton() {
+    valuesControl.innerHTML = icon(valuesPaused ? 'play' : 'pause');
+    valuesControl.setAttribute('aria-label', valuesPaused ? 'Play values slideshow' : 'Pause values slideshow');
   }
-  $$('button',valueTabs).forEach(button => button.addEventListener('click', () => setValue(button)));
+  function scheduleValues() {
+    clearTimeout(valuesTimer);
+    if (valuesVisible && !valuesPaused && !valuesHovered && !valuesFocused && !document.hidden) {
+      valuesTimer = setTimeout(() => setValue(valueButtons[(valueIndex + 1) % values.length]), 4000);
+    }
+  }
+  function setValue(button) {
+    const index = Number(button.dataset.value);
+    if (index !== valueIndex) {
+      valueIndex = index;
+      valueButtons.forEach(tab => { const chosen = tab === button; tab.setAttribute('aria-selected',String(chosen)); tab.tabIndex = chosen ? 0 : -1; });
+      const word = $('#value-word'); word.textContent = values[index];
+      $('#value-panel').textContent = $('span',button).textContent;
+      $('#value-panel').setAttribute('aria-labelledby',button.id);
+      animate(word,[{opacity:.35,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:420});
+    }
+    scheduleValues();
+  }
+  valueButtons.forEach(button => button.addEventListener('click', () => setValue(button)));
   wireTabs(valueTabs,'button',setValue);
+  valuesControl.addEventListener('click', () => { valuesPaused = !valuesPaused; valuesButton(); scheduleValues(); });
+  valuesBlock.addEventListener('pointerenter', () => { valuesHovered = true; scheduleValues(); });
+  valuesBlock.addEventListener('pointerleave', () => { valuesHovered = false; scheduleValues(); });
+  valuesBlock.addEventListener('focusin', () => { valuesFocused = true; scheduleValues(); });
+  valuesBlock.addEventListener('focusout', event => { if (!valuesBlock.contains(event.relatedTarget)) { valuesFocused = false; scheduleValues(); } });
+  if ('IntersectionObserver' in window) new IntersectionObserver(([entry]) => { valuesVisible = entry.isIntersecting; scheduleValues(); }, {threshold:.2}).observe(valuesBlock);
+  reduced.addEventListener('change', () => { if (reduced.matches) valuesPaused = true; valuesButton(); scheduleValues(); });
+  valuesButton();
+  scheduleValues();
   $$('.approach details').forEach(details => details.addEventListener('toggle', () => {
     if (details.open) $$('.approach details').filter(other => other !== details).forEach(other => {other.open = false;});
   }));
@@ -445,7 +475,7 @@
   if ('IntersectionObserver' in window) new IntersectionObserver(([entry]) => {processVisible=entry.isIntersecting;scheduleProcess();},{threshold:.25}).observe(processLayout);
   else processVisible=true;
   reduced.addEventListener('change', () => {if(reduced.matches)processPaused=true;processButton();scheduleProcess();});
-  document.addEventListener('visibilitychange', () => {syncVideo();scheduleProcess();});
+  document.addEventListener('visibilitychange', () => {syncVideo();scheduleProcess();scheduleValues();});
 
   selectCategory(0,false);
   processButton();

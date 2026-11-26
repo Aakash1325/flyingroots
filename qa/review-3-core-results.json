@@ -1,0 +1,57 @@
+{
+  "status": "pass",
+  "checks": [
+    "hero video only",
+    "all anchor targets",
+    "seven catalogue categories and drawers",
+    "search and empty state",
+    "carousel",
+    "values",
+    "accordions",
+    "process tabs",
+    "buyer validation and preview",
+    "supplier validation and preview",
+    "mobile menu",
+    "all sections",
+    "video autoplay and pause/resume"
+  ],
+  "layouts": [
+    {
+      "width": 320,
+      "scroll": 305,
+      "hero": 305
+    },
+    {
+      "width": 375,
+      "scroll": 360,
+      "hero": 360
+    },
+    {
+      "width": 390,
+      "scroll": 375,
+      "hero": 375
+    },
+    {
+      "width": 768,
+      "scroll": 753,
+      "hero": 753
+    },
+    {
+      "width": 1024,
+      "scroll": 1009,
+      "hero": 1009
+    },
+    {
+      "width": 1440,
+      "scroll": 1425,
+      "hero": 1425
+    },
+    {
+      "width": 1920,
+      "scroll": 1905,
+      "hero": 1905
+    }
+  ],
+  "errors": [],
+  "failures": []
+}

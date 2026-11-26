@@ -1,0 +1,472 @@
+{
+  "layouts": [
+    {
+      "width": 320,
+      "overflow": false,
+      "order": [
+        "top",
+        "about",
+        "products",
+        "services",
+        "process",
+        "contact"
+      ],
+      "header": {
+        "x": 20,
+        "y": 0,
+        "width": 265,
+        "height": 92,
+        "cx": 152.5,
+        "cy": 46
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "cx": 0,
+        "cy": 0
+      },
+      "brand": {
+        "x": 20,
+        "y": 31.5,
+        "width": 144,
+        "height": 29,
+        "cx": 92,
+        "cy": 46
+      },
+      "cta": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "cx": 0,
+        "cy": 0
+      },
+      "hero": {
+        "x": 0,
+        "y": 0,
+        "width": 305,
+        "height": 900,
+        "cx": 152.5,
+        "cy": 450
+      },
+      "content": {
+        "x": 20,
+        "y": 200.875,
+        "width": 265,
+        "height": 498.25,
+        "cx": 152.5,
+        "cy": 450
+      },
+      "bodyMin": 12,
+      "bodyMax": 16,
+      "bodyOutliers": [],
+      "revealDuration": "0.85s, 0.85s"
+    },
+    {
+      "width": 375,
+      "overflow": false,
+      "order": [
+        "top",
+        "about",
+        "products",
+        "services",
+        "process",
+        "contact"
+      ],
+      "header": {
+        "x": 20,
+        "y": 0,
+        "width": 320,
+        "height": 92,
+        "cx": 180,
+        "cy": 46
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "cx": 0,
+        "cy": 0
+      },
+      "brand": {
+        "x": 20,
+        "y": 31.5,
+        "width": 144,
+        "height": 29,
+        "cx": 92,
+        "cy": 46
+      },
+      "cta": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "cx": 0,
+        "cy": 0
+      },
+      "hero": {
+        "x": 0,
+        "y": 0,
+        "width": 360,
+        "height": 900,
+        "cx": 180,
+        "cy": 450
+      },
+      "content": {
+        "x": 20,
+        "y": 221.21875,
+        "width": 320,
+        "height": 457.546875,
+        "cx": 180,
+        "cy": 449.9921875
+      },
+      "bodyMin": 12,
+      "bodyMax": 16,
+      "bodyOutliers": [],
+      "revealDuration": "0.85s, 0.85s"
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "order": [
+        "top",
+        "about",
+        "products",
+        "services",
+        "process",
+        "contact"
+      ],
+      "header": {
+        "x": 20,
+        "y": 0,
+        "width": 335,
+        "height": 92,
+        "cx": 187.5,
+        "cy": 46
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "cx": 0,
+        "cy": 0
+      },
+      "brand": {
+        "x": 20,
+        "y": 31.5,
+        "width": 144,
+        "height": 29,
+        "cx": 92,
+        "cy": 46
+      },
+      "cta": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "cx": 0,
+        "cy": 0
+      },
+      "hero": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 900,
+        "cx": 187.5,
+        "cy": 450
+      },
+      "content": {
+        "x": 20,
+        "y": 221.21875,
+        "width": 335,
+        "height": 457.546875,
+        "cx": 187.5,
+        "cy": 449.9921875
+      },
+      "bodyMin": 12,
+      "bodyMax": 16,
+      "bodyOutliers": [],
+      "revealDuration": "0.85s, 0.85s"
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "order": [
+        "top",
+        "about",
+        "products",
+        "services",
+        "process",
+        "contact"
+      ],
+      "header": {
+        "x": 24,
+        "y": 0,
+        "width": 705,
+        "height": 96,
+        "cx": 376.5,
+        "cy": 48
+      },
+      "nav": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "cx": 0,
+        "cy": 0
+      },
+      "brand": {
+        "x": 24,
+        "y": 33,
+        "width": 150,
+        "height": 30,
+        "cx": 99,
+        "cy": 48
+      },
+      "cta": {
+        "x": 537,
+        "y": 27,
+        "width": 132,
+        "height": 42,
+        "cx": 603,
+        "cy": 48
+      },
+      "hero": {
+        "x": 0,
+        "y": 0,
+        "width": 753,
+        "height": 900,
+        "cx": 376.5,
+        "cy": 450
+      },
+      "content": {
+        "x": 32,
+        "y": 280.265625,
+        "width": 689,
+        "height": 339.46875,
+        "cx": 376.5,
+        "cy": 450
+      },
+      "bodyMin": 12,
+      "bodyMax": 16,
+      "bodyOutliers": [],
+      "revealDuration": "0.85s, 0.85s"
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "order": [
+        "top",
+        "about",
+        "products",
+        "services",
+        "process",
+        "contact"
+      ],
+      "header": {
+        "x": 24,
+        "y": 0,
+        "width": 961,
+        "height": 108,
+        "cx": 504.5,
+        "cy": 54
+      },
+      "nav": {
+        "x": 277.5,
+        "y": 19.796875,
+        "width": 454,
+        "height": 68.390625,
+        "cx": 504.5,
+        "cy": 53.9921875
+      },
+      "brand": {
+        "x": 24,
+        "y": 39,
+        "width": 150,
+        "height": 30,
+        "cx": 99,
+        "cy": 54
+      },
+      "cta": {
+        "x": 853,
+        "y": 33,
+        "width": 132,
+        "height": 42,
+        "cx": 919,
+        "cy": 54
+      },
+      "hero": {
+        "x": 0,
+        "y": 0,
+        "width": 1009,
+        "height": 900,
+        "cx": 504.5,
+        "cy": 450
+      },
+      "content": {
+        "x": 48,
+        "y": 265.796875,
+        "width": 913,
+        "height": 368.40625,
+        "cx": 504.5,
+        "cy": 450
+      },
+      "bodyMin": 12,
+      "bodyMax": 16,
+      "bodyOutliers": [],
+      "revealDuration": "0.85s, 0.85s"
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "order": [
+        "top",
+        "about",
+        "products",
+        "services",
+        "process",
+        "contact"
+      ],
+      "header": {
+        "x": 52.5,
+        "y": 0,
+        "width": 1320,
+        "height": 108,
+        "cx": 712.5,
+        "cy": 54
+      },
+      "nav": {
+        "x": 459,
+        "y": 18.953125,
+        "width": 507,
+        "height": 70.09375,
+        "cx": 712.5,
+        "cy": 54
+      },
+      "brand": {
+        "x": 52.5,
+        "y": 37,
+        "width": 168,
+        "height": 34,
+        "cx": 136.5,
+        "cy": 54
+      },
+      "cta": {
+        "x": 1236.5,
+        "y": 33,
+        "width": 136,
+        "height": 42,
+        "cx": 1304.5,
+        "cy": 54
+      },
+      "hero": {
+        "x": 0,
+        "y": 0,
+        "width": 1425,
+        "height": 900,
+        "cx": 712.5,
+        "cy": 450
+      },
+      "content": {
+        "x": 112.5,
+        "y": 237.734375,
+        "width": 1200,
+        "height": 424.515625,
+        "cx": 712.5,
+        "cy": 449.9921875
+      },
+      "bodyMin": 12,
+      "bodyMax": 16,
+      "bodyOutliers": [],
+      "revealDuration": "0.85s, 0.85s"
+    },
+    {
+      "width": 1920,
+      "overflow": false,
+      "order": [
+        "top",
+        "about",
+        "products",
+        "services",
+        "process",
+        "contact"
+      ],
+      "header": {
+        "x": 292.5,
+        "y": 0,
+        "width": 1320,
+        "height": 108,
+        "cx": 952.5,
+        "cy": 54
+      },
+      "nav": {
+        "x": 699,
+        "y": 18.953125,
+        "width": 507,
+        "height": 70.09375,
+        "cx": 952.5,
+        "cy": 54
+      },
+      "brand": {
+        "x": 292.5,
+        "y": 37,
+        "width": 168,
+        "height": 34,
+        "cx": 376.5,
+        "cy": 54
+      },
+      "cta": {
+        "x": 1476.5,
+        "y": 33,
+        "width": 136,
+        "height": 42,
+        "cx": 1544.5,
+        "cy": 54
+      },
+      "hero": {
+        "x": 0,
+        "y": 0,
+        "width": 1905,
+        "height": 900,
+        "cx": 952.5,
+        "cy": 450
+      },
+      "content": {
+        "x": 352.5,
+        "y": 237.734375,
+        "width": 1200,
+        "height": 424.515625,
+        "cx": 952.5,
+        "cy": 449.9921875
+      },
+      "bodyMin": 12,
+      "bodyMax": 16,
+      "bodyOutliers": [],
+      "revealDuration": "0.85s, 0.85s"
+    }
+  ],
+  "cycle": [
+    "clear.",
+    "traceable.",
+    "transparent.",
+    "accountable.",
+    "clear."
+  ],
+  "errors": [],
+  "status": "pass",
+  "checks": [
+    "section order",
+    "centered nav and hero",
+    "body 12–16px",
+    "0.85s reveals",
+    "four-second full cycle",
+    "pause/resume",
+    "hover and focus pause",
+    "offscreen pause",
+    "reduced motion"
+  ]
+}

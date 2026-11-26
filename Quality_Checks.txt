@@ -70,3 +70,11 @@ Cold-cache synthetic Chromium playback over 2 Mbps / 100ms latency: mobile first
 Visual review: mobile and desktop story, catalogue, forms, footer, hero and remaining sections inspected. Footer bottom remains within footer bounds. Reduced-motion rendering keeps all content available.
 
 Normal-motion scroll walkthrough passed at 390 and 1440px; every rendered reveal block became visible, footer navigation activated Contact, and switching to reduced motion exposed all content without transitions.
+
+2026-11-26 REVIEW 3: LAYOUT, TYPOGRAPHY AND MOTION
+Main section order: Home, About (story and values), Products, What We Do, Our Process (journey and trade), Contact. Products is the third main section; navbar anchors follow the same order.
+Chromium verification passed at 320, 375, 390, 768, 1024, 1440 and 1920px: centered desktop navigation, +20px navbar height, vertically centered left-aligned hero content, larger headings and subheadings, visible paragraph sizes 12–16px, and no horizontal overflow. Short-screen hero clearance also passed at 320x568, 375x667, 768x600 and 1024x600.
+Values completed Clear → Traceable → Transparent → Accountable → Clear with a four-second hold. Pause/resume, hover and keyboard-focus pauses, offscreen pause, manual selection and reduced-motion behavior passed. Reveal transitions increased from 0.4s to 0.85s; click and card transitions remain short.
+Core regression passed: seven catalogue categories and drawers, search/empty/reset, carousel, value tabs, accordions, process tabs, both demo form validation/preview flows, mobile menu, anchors and hero video pause/resume. No page errors or failed asset requests.
+Catalogue stress verification at 320, 390, 768 and 1440px: 70 rapid category changes per width at 4x CPU throttling, zero section-height change, no queued panel animations, and p95 click handlers between 3ms and 11ms. These are local synthetic Chromium measurements, not physical-device or cross-engine guarantees.
+Visual review completed for mobile/desktop hero, story, values and catalogue. Existing video optimizations and custom meadow footer preserved.

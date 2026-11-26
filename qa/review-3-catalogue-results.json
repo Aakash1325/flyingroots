@@ -1,0 +1,42 @@
+[
+  {
+    "width": 320,
+    "p95HandlerMs": 6.900000000139698,
+    "maxHandlerMs": 7.800000000046566,
+    "p95FrameMs": 16.800000000000182,
+    "maxConcurrentPanelAnimations": 1,
+    "heightDelta": 0,
+    "active": "nuts",
+    "errors": []
+  },
+  {
+    "width": 390,
+    "p95HandlerMs": 3,
+    "maxHandlerMs": 6.5,
+    "p95FrameMs": 16.800000000000182,
+    "maxConcurrentPanelAnimations": 1,
+    "heightDelta": 0,
+    "active": "nuts",
+    "errors": []
+  },
+  {
+    "width": 768,
+    "p95HandlerMs": 11,
+    "maxHandlerMs": 25.199999999953434,
+    "p95FrameMs": 16.799999999999272,
+    "maxConcurrentPanelAnimations": 1,
+    "heightDelta": 0,
+    "active": "nuts",
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "p95HandlerMs": 4.099999999860302,
+    "maxHandlerMs": 9.599999999860302,
+    "p95FrameMs": 16.800000000000182,
+    "maxConcurrentPanelAnimations": 1,
+    "heightDelta": 0,
+    "active": "nuts",
+    "errors": []
+  }
+]
